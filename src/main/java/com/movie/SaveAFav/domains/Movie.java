@@ -11,6 +11,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Movie {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "MovieId")

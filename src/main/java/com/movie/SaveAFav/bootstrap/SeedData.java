@@ -1,19 +1,19 @@
 package com.movie.SaveAFav.bootstrap;
 
 
+import com.movie.SaveAFav.domains.ApplicationUser;
 import com.movie.SaveAFav.domains.Movie;
+import com.movie.SaveAFav.repositories.ApplicationUserRepository;
+import com.movie.SaveAFav.services.impl.ApplicationUserDetailsService;
 import com.movie.SaveAFav.services.interfaces.MovieService;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
-import java.util.stream.IntStream;
-
 @Component
 public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
 
-    final
-    MovieService movieService;
+    final MovieService movieService;
 
 
 
@@ -25,6 +25,7 @@ public class SeedData implements ApplicationListener<ContextRefreshedEvent> {
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
+
 
 //only seed if empty
         if (movieService.findAllMovies().size() == 0){

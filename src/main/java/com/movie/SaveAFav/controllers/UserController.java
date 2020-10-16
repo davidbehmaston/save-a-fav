@@ -4,17 +4,14 @@ package com.movie.SaveAFav.controllers;
 import com.movie.SaveAFav.domains.ApplicationUser;
 import com.movie.SaveAFav.repositories.ApplicationUserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/users")
 public class UserController {
 
-    private ApplicationUserRepository applicationUserRepository;
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final ApplicationUserRepository applicationUserRepository;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public UserController(ApplicationUserRepository applicationUserRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.applicationUserRepository = applicationUserRepository;

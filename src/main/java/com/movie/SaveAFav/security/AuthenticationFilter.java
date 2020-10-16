@@ -38,7 +38,6 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
                                                 HttpServletResponse res) throws AuthenticationException {
         try {
             ApplicationUser applicationUser = new ObjectMapper().readValue(req.getInputStream(), ApplicationUser.class);
-
             return authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(applicationUser.getUsername(),
                             applicationUser.getPassword(), new ArrayList<>())
@@ -57,9 +56,5 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         Claims claims = Jwts.claims().setSubject(((User) auth.getPrincipal()).getUsername());
         String token = Jwts.builder().setClaims(claims).signWith(key, SignatureAlgorithm.HS512).setExpiration(exp).compact();
         res.addHeader("token", token);
-
-
     }
-
-
 }

@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.function.Supplier;
 import java.util.logging.Logger;
 
-@CrossOrigin(origins = "*")
+
 @RestController
 @RequestMapping("/api/movie")
 public class MovieRest {

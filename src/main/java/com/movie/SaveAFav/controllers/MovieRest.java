@@ -20,6 +20,7 @@ import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/api/movie")
+@CrossOrigin(origins = {"*"})
 public class MovieRest {
 
     private Logger log = Logger.getLogger(MovieRest.class.getName());
